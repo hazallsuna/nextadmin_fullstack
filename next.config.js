@@ -9,7 +9,7 @@ const nextConfig = {
     ],
   },
   env: {
-    MONGO: 'mongodb+srv://hazal:123qweasd@cluster0.uwrzopu.mongodb.net/dashboard?retryWrites=true&w=majority',
+    MONGO_URI: 'mongodb+srv://hazal:123qweasd@cluster0.uwrzopu.mongodb.net/dashboard?retryWrites=true&w=majority',
     AUTH_SECRET: 'generatesecretkey',
     AUTH_URL: 'https://nextadmin-fullstack-kxkm-dhsfpmch0-hazals-projects-53a4fddc.vercel.app/api/auth',
   }
