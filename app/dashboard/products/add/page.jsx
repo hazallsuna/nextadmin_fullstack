@@ -1,6 +1,7 @@
 import { addProduct } from "@/app/lib/actions";
 import styles from "@/app/ui/dashboard/products/addProduct/addProduct.module.css";
 
+
 const AddProductPage = () => {
   return (
     <div className={styles.container}>
@@ -10,6 +11,11 @@ const AddProductPage = () => {
         <input type="number" placeholder="stok" name="stock" required />
         <input type="text" placeholder="renk" name="color" />
         <input type="text" placeholder="durum" name="size" />
+        <select name="cat" id="cat" required>
+          <option value="mutfak">Mutfak</option>
+          <option value="telefon">Telefon</option>
+          <option value="bilgisayar">Bilgisayar</option>
+        </select>
         <textarea
           required
           name="desc"
@@ -24,3 +30,4 @@ const AddProductPage = () => {
 };
 
 export default AddProductPage;
+

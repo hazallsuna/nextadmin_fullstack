@@ -13,6 +13,8 @@ import {
     MdHelpCenter,
     MdLogout,
   } from "react-icons/md";
+  import { auth, signOut } from "@/app/auth";
+
 const menuItems = [
     {
       title: "",
@@ -68,21 +70,24 @@ const menuItems = [
     },
   ];
 
-const Sidebar = () => {
-    return(
-         <div className={styles.container}>
-            <div className={styles.user}>
-            <Image className={styles.userImage}
-          src="/noavatar.png"
-          alt=""
-          width="50"
-          height="50"
-        />
-        <div className={styles.username}>
-            <span className={styles.username}>Hazal Suna</span>
-            <span className={styles.userTitle}>Yönetici</span>
+  const Sidebar = async () => {
+    const { user } = await auth();
+    return (
+      <div className={styles.container}>
+        <div className={styles.user}>
+          <Image
+            className={styles.userImage}
+            src={user.img || "/noavatar.png"}
+            alt=""
+            width="50"
+            height="50"
+          />
+          <div className={styles.userDetail}>
+            <span className={styles.username}>{user.username}</span>
+            <span className={styles.userTitle}>Admin</span>
+          </div>
         </div>
-            </div>
+  
            <ul className={styles.list}>
         {menuItems.map((cat) => (
           <li key={cat.title}>
@@ -93,10 +98,17 @@ const Sidebar = () => {
         </li>
         ))}
       </ul>
-      <button className={styles.logout}>
-        <MdLogout/>
-        Logout
-      </button>
+      <form
+        action={async () => {
+          "use server";
+          await signOut();
+        }}
+      >
+        <button className={styles.logout}>
+          <MdLogout />
+          Çıkış 
+        </button>
+      </form>
          </div>
     );
 };

@@ -12,7 +12,7 @@ export const addUser = async (formData) => {
       Object.fromEntries(formData);
   
     try {
-      connectToDB();
+      await connectToDB();
       
       const salt = await bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash(password, salt);
@@ -85,8 +85,7 @@ export const addUser = async (formData) => {
   };
   
   export const addProduct = async (formData) => {
- 
-    const { title, desc, price, stock, color, size } =
+    const { title, desc, price, stock, color, size , cat} =
       Object.fromEntries(formData);
   
     try {
@@ -99,6 +98,8 @@ export const addUser = async (formData) => {
         stock,
         color,
         size,
+        cat,
+        
       });
   
       await newProduct.save();
@@ -110,9 +111,9 @@ export const addUser = async (formData) => {
     revalidatePath("/dashboard/products");
     redirect("/dashboard/products");
   };
-
+  
   export const updateProduct = async (formData) => {
-    const { id, title, desc, price, stock, color, size } =
+    const { id, title, desc, price, stock, color, size ,cat} =
       Object.fromEntries(formData);
   
     try {
@@ -125,11 +126,13 @@ export const addUser = async (formData) => {
         stock,
         color,
         size,
+        cat,
+      
       };
   
       Object.keys(updateFields).forEach(
-        (key) =>
-          (updateFields[key] === "" || undefined) && delete updateFields[key]
+        (key) => (updateFields[key] === "" || updateFields[key] === undefined) && delete updateFields[key]
+
       );
   
       await Product.findByIdAndUpdate(id, updateFields);
@@ -141,6 +144,7 @@ export const addUser = async (formData) => {
     revalidatePath("/dashboard/products");
     redirect("/dashboard/products");
   };
+  
 
   export const deleteProduct = async (formData) => {
     const { id } = Object.fromEntries(formData);
@@ -156,14 +160,15 @@ export const addUser = async (formData) => {
     revalidatePath("/dashboard/products");
   };
 
-  export const authenticate = async (formData) => {
+  export const authenticate = async (prevState,formData) => {
     const { username, password } = Object.fromEntries(formData);
   
     try {
       await signIn("credentials", { username, password });
     } catch (err) {
-      console.log(err);
+      if (err.message.includes("CredentialsSignin")) {
+        return "Yanlış kullanıcı adı ve şifre";
+      }
       throw err;
     }
   };
-  
