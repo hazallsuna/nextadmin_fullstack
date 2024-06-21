@@ -1,10 +1,8 @@
-E-ticaret projelerine yardımcı olmak için yazılmış verileri Mongodb'den alan Next.js kullanıldığı bir admin panel sayfası.
-Örnek kullanıcı bilgileri aşağıdadır bu sayede kullanıcı login ekranından giriş yapıp dashboard sayfasına ulaşabilir
-username:hazal
-password:hazal
-<<<<<<< HEAD
-[Vercel için tıklayınız](https://nextadmin-fullstack-kxkm.vercel.app/) 
-=======
-[Vercel için tıklayınız](https://nextadmin-fullstack-kxkm.vercel.app/) 
+### E-ticaret Admin Paneli
 
->>>>>>> 25f1222fb712a8887c6e499e508dfcf4cef34c66
+Bu projede MongoDB'den veri alan bir Next.js kullanılarak oluşturulmuş bir admin paneli bulunmaktadır. Aşağıdaki örnek kullanıcı bilgileri ile giriş yapabilirsiniz:
+
+- **Kullanıcı Adı:** hazal
+- **Şifre:** hazal
+
+[Admin Paneline Git](https://nextadmin-fullstack-kxkm.vercel.app/)
