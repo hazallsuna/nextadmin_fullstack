@@ -5,4 +5,4 @@ Bu projede MongoDB'den veri alan bir Next.js kullanılarak oluşturulmuş bir ad
 - **Kullanıcı Adı:** hazal
 - **Şifre:** hazal
 
-[Admin Paneline Git](https://nextadmin-fullstack-kxkm.vercel.app/)
+[Admin Paneline Git](https://nextadmin-fullstack.vercel.app/)
