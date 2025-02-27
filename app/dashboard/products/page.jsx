@@ -25,10 +25,12 @@ const ProductsPage = async ({ searchParams }) => {
             <tr>
                 <td>İsim</td>
                 <td>Açıklama</td>
+                <td>Kategori</td>
                 <td>Fiyat</td>
                 <td>Tarih</td>
                 <td>Stok</td>
                 <td>Durum</td>
+                
             </tr>
         </thead>
         <tbody>
@@ -47,12 +49,13 @@ const ProductsPage = async ({ searchParams }) => {
                </div>
              </td>
              <td>{product.desc}</td>
+             <td>{product.cat}</td>
              <td>₺{product.price}</td>
              <td>{product.createdAt?.toString().slice(4, 16)}</td>
              <td>{product.stock}</td>
              <td>
                     <div className={styles.buttons}>
-                    <Link href="/dashboard/products/test">
+                    <Link href={`/dashboard/products/${product.id}`}>
                     <button className={`${styles.button} ${styles.view}`}>Göster</button>
                     </Link>
                     <form action ={deleteProduct}>

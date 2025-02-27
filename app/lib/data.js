@@ -1,5 +1,5 @@
 import {Product, User} from "./models";
-import { connectToDB } from "./util";
+import { connectToDB } from "./util.js";
 
 export const fetchUsers = async (q,page) => {
    
@@ -49,7 +49,7 @@ export const fetchUsers = async (q,page) => {
 
   } catch (err) {
     console.log(err);
-    throw new Error("Failed to fetch users!");
+    throw new Error("Failed to fetch products!");
   }
   };
   
@@ -62,5 +62,7 @@ export const fetchUsers = async (q,page) => {
       console.log(err);
       throw new Error("Failed to fetch product!");
     }
+
+    
   };
   

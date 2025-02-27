@@ -24,6 +24,7 @@ const Transactions = () => {
                   width={40}
                   height={40}
                   className={styles.userImage}
+        
                 />
                 Ali Yılmaz
               </div>
@@ -45,6 +46,7 @@ const Transactions = () => {
                   width={40}
                   height={40}
                   className={styles.userImage}
+                
                 />
                 Ayşe Altun
               </div>
@@ -66,6 +68,7 @@ const Transactions = () => {
                   width={40}
                   height={40}
                   className={styles.userImage}
+                 
                 />
                 Ahmet Güney
               </div>
@@ -87,6 +90,7 @@ const Transactions = () => {
                   width={40}
                   height={40}
                   className={styles.userImage}
+                
                 />
                 Ayça Şen
               </div>
