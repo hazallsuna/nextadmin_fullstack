@@ -9,8 +9,11 @@ const login = async (credentials) => {
     try {
         connectToDB()
         const user = await User.findOne({username:credentials.username})
+<<<<<<< HEAD
         console.log("Gelen Kullanıcı:", credentials.username);
         console.log("Bulunan Kullanıcı:", user);
+=======
+>>>>>>> 496704913dd77a5b7d96319feb54d6469d55ae5c
         
         if(!user) throw new Error("Wrong credentials")
 
@@ -18,6 +21,7 @@ const login = async (credentials) => {
           credentials.password,
           user.password
         );
+<<<<<<< HEAD
         console.log("gelen şifre",credentials.password);
         console.log("veritabanı şifre",user.password);
         console.log("şifre doğru mu?",isPasswordCorrect);
@@ -28,6 +32,12 @@ const login = async (credentials) => {
           name: user.username,
           email: user.email,
       };
+=======
+    
+        if (!isPasswordCorrect) throw new Error("Wrong credentials!");
+    
+        return user;
+>>>>>>> 496704913dd77a5b7d96319feb54d6469d55ae5c
     }catch(err){
      console.log(err)
      throw new Error("Failed to login") 
